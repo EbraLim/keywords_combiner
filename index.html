@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>10초 만에 완료되는 키워드 조합기!</title>
+    <script>
+        function combineKeywords() {
+            var keywords1 = document.getElementById("keywords1").value.trim().split("\n");
+            var keywords2 = document.getElementById("keywords2").value.trim().split("\n");
+            var keywords3 = document.getElementById("keywords3").value.trim().split("\n");
+            var keywords4 = document.getElementById("keywords4").value.trim().split("\n");
+            var combinedKeywords = [];
+            var options = document.querySelectorAll('input[name="option"]:checked');
+            // var option = document.querySelector('input[name="option"]:checked').value;
+
+            options.forEach(function(option) {
+                switch (option.value) {
+                    // 1개 짜리 조합들
+                    case "1":
+                        combinedKeywords = combinedKeywords.concat(keywords1);
+                        break;
+                    case "2":
+                        combinedKeywords = combinedKeywords.concat(keywords2);
+                        break;
+                    case "3":
+                        combinedKeywords = combinedKeywords.concat(keywords3);
+                        break;
+                    case "4":
+                        combinedKeywords = combinedKeywords.concat(keywords4);
+                        break;
+                    // 2개 짜리 조합들
+                    case "1+2":
+                        for (var i = 0; i < keywords1.length; i++) {
+                        for (var j = 0; j < keywords2.length; j++) {
+                            combinedKeywords.push(keywords1[i] + keywords2[j]);
+                        }
+                        }
+                        break;
+                    case "1+3":
+                        for (var i = 0; i < keywords1.length; i++) {
+                        for (var j = 0; j < keywords3.length; j++) {
+                            combinedKeywords.push(keywords1[i] + keywords3[j]);
+                        }
+                        }
+                        break;
+                    case "1+4":
+                        for (var i = 0; i < keywords1.length; i++) {
+                        for (var j = 0; j < keywords4.length; j++) {
+                            combinedKeywords.push(keywords1[i] + keywords4[j]);
+                        }
+                        }
+                        break;
+                    case "2+1":
+                        for (var i = 0; i < keywords2.length; i++) {
+                        for (var j = 0; j < keywords1.length; j++) {
+                            combinedKeywords.push(keywords2[i] + keywords1[j]);
+                        }
+                        }
+                        break;
+                    case "2+3":
+                        for (var i = 0; i < keywords2.length; i++) {
+                        for (var j = 0; j < keywords3.length; j++) {
+                            combinedKeywords.push(keywords2[i] + keywords3[j]);
+                        }
+                        }
+                        break;
+                    case "2+4":
+                        for (var i = 0; i < keywords2.length; i++) {
+                        for (var j = 0; j < keywords4.length; j++) {
+                            combinedKeywords.push(keywords2[i] + keywords4[j]);
+                        }
+                        }
+                        break;
+                    case "3+1":
+                        for (var i = 0; i < keywords3.length; i++) {
+                        for (var j = 0; j < keywords1.length; j++) {
+                            combinedKeywords.push(keywords3[i] + keywords1[j]);
+                        }
+                        }
+                        break;
+                    case "3+2":
+                        for (var i = 0; i < keywords3.length; i++) {
+                        for (var j = 0; j < keywords2.length; j++) {
+                            combinedKeywords.push(keywords3[i] + keywords2[j]);
+                        }
+                        }
+                        break;
+                    case "3+4":
+                        for (var i = 0; i < keywords3.length; i++) {
+                        for (var j = 0; j < keywords4.length; j++) {
+                            combinedKeywords.push(keywords3[i] + keywords4[j]);
+                        }
+                        }
+                        break;
+                    case "4+1":
+                        for (var i = 0; i < keywords4.length; i++) {
+                        for (var j = 0; j < keywords1.length; j++) {
+                            combinedKeywords.push(keywords4[i] + keywords1[j]);
+                        }
+                        }
+                        break;
+                    case "4+2":
+                        for (var i = 0; i < keywords4.length; i++) {
+                        for (var j = 0; j < keywords2.length; j++) {
+                            combinedKeywords.push(keywords4[i] + keywords2[j]);
+                        }
+                        }
+                        break;
+                    case "4+3":
+                        for (var i = 0; i < keywords4.length; i++) {
+                        for (var j = 0; j < keywords3.length; j++) {
+                            combinedKeywords.push(keywords4[i] + keywords3[j]);
+                        }
+                        }
+                        break;
+                    // 3개 짜리 조합들
+                    case "1+2+3":
+                        for (var i = 0; i < keywords1.length; i++) {
+                        for (var j = 0; j < keywords2.length; j++) {
+                        for (var k = 0; k < keywords3.length; k++) {
+                            combinedKeywords.push(keywords1[i] + keywords2[j] + keywords3[k]);
+                        }
+                        }
+                        }
+                        break;
+                    case "1+2+4":
+                        for (var i = 0; i < keywords1.length; i++) {
+                        for (var j = 0; j < keywords2.length; j++) {
+                        for (var k = 0; k < keywords4.length; k++) {
+                            combinedKeywords.push(keywords1[i] + keywords2[j] + keywords4[k]);
+                        }
+                        }
+                        }
+                        break;
+                    case "1+3+2":
+                        for (var i = 0; i < keywords1.length; i++) {
+                        for (var j = 0; j < keywords3.length; j++) {
+                        for (var k = 0; k < keywords2.length; k++) {
+                            combinedKeywords.push(keywords1[i] + keywords3[j] + keywords2[k]);
+                        }
+                        }
+                        }
+                        break;
+                    case "1+3+4":
+                        for (var i = 0; i < keywords1.length; i++) {
+                        for (var j = 0; j < keywords3.length; j++) {
+                        for (var k = 0; k < keywords4.length; k++) {
+                            combinedKeywords.push(keywords1[i] + keywords3[j] + keywords4[k]);
+                        }
+                        }
+                        }
+                        break;
+                    case "1+4+2":
+                        for (var i = 0; i < keywords1.length; i++) {
+                        for (var j = 0; j < keywords4.length; j++) {
+                        for (var k = 0; k < keywords2.length; k++) {
+                            combinedKeywords.push(keywords1[i] + keywords4[j] + keywords2[k]);
+                        }
+                        }
+                        }
+                        break;
+                    case "1+4+3":
+                        for (var i = 0; i < keywords1.length; i++) {
+                        for (var j = 0; j < keywords4.length; j++) {
+                        for (var k = 0; k < keywords3.length; k++) {
+                            combinedKeywords.push(keywords1[i] + keywords4[j] + keywords3[k]);
+                        }
+                        }
+                        }
+                        break;
+                    case "2+1+3":
+                        for (var i = 0; i < keywords2.length; i++) {
+                        for (var j = 0; j < keywords1.length; j++) {
+                        for (var k = 0; k < keywords3.length; k++) {
+                            combinedKeywords.push(keywords2[i] + keywords1[j] + keywords3[k]);
+                        }
+                        }
+                        }
+                        break;
+                    case "2+1+4":
+                        for (var i = 0; i < keywords2.length; i++) {
+                        for (var j = 0; j < keywords1.length; j++) {
+                        for (var k = 0; k < keywords4.length; k++) {
+                            combinedKeywords.push(keywords2[i] + keywords1[j] + keywords4[k]);
+                        }
+                        }
+                        }
+                        break;
+                    case "2+3+1":
+                        for (var i = 0; i < keywords2.length; i++) {
+                        for (var j = 0; j < keywords3.length; j++) {
+                        for (var k = 0; k < keywords1.length; k++) {
+                            combinedKeywords.push(keywords2[i] + keywords3[j] + keywords1[k]);
+                        }
+                        }
+                        }
+                        break;
+                    case "2+3+4":
+                        for (var i = 0; i < keywords2.length; i++) {
+                        for (var j = 0; j < keywords3.length; j++) {
+                        for (var k = 0; k < keywords4.length; k++) {
+                            combinedKeywords.push(keywords2[i] + keywords3[j] + keywords4[k]);
+                        }
+                        }
+                        }
+                        break;
+                    case "2+4+1":
+                        for (var i = 0; i < keywords2.length; i++) {
+                        for (var j = 0; j < keywords4.length; j++) {
+                        for (var k = 0; k < keywords1.length; k++) {
+                            combinedKeywords.push(keywords2[i] + keywords4[j] + keywords1[k]);
+                        }
+                        }
+                        }
+                        break;
+                    case "2+4+3":
+                        for (var i = 0; i < keywords2.length; i++) {
+                        for (var j = 0; j < keywords4.length; j++) {
+                        for (var k = 0; k < keywords3.length; k++) {
+                            combinedKeywords.push(keywords2[i] + keywords4[j] + keywords3[k]);
+                        }
+                        }
+                        }
+                        break;
+                    case "3+1+2":
+                        for (var i = 0; i < keywords3.length; i++) {
+                        for (var j = 0; j < keywords1.length; j++) {
+                        for (var k = 0; k < keywords2.length; k++) {
+                            combinedKeywords.push(keywords3[i] + keywords1[j] + keywords2[k]);
+                        }
+                        }
+                        }
+                        break;
+                    case "3+1+4":
+                        for (var i = 0; i < keywords3.length; i++) {
+                        for (var j = 0; j < keywords1.length; j++) {
+                        for (var k = 0; k < keywords4.length; k++) {
+                            combinedKeywords.push(keywords3[i] + keywords1[j] + keywords4[k]);
+                        }
+                        }
+                        }
+                        break;
+                    case "3+2+1":
+                        for (var i = 0; i < keywords3.length; i++) {
+                        for (var j = 0; j < keywords2.length; j++) {
+                        for (var k = 0; k < keywords1.length; k++) {
+                            combinedKeywords.push(keywords3[i] + keywords2[j] + keywords1[k]);
+                        }
+                        }
+                        }
+                        break;
+                    case "3+2+4":
+                        for (var i = 0; i < keywords3.length; i++) {
+                        for (var j = 0; j < keywords2.length; j++) {
+                        for (var k = 0; k < keywords4.length; k++) {
+                            combinedKeywords.push(keywords3[i] + keywords2[j] + keywords4[k]);
+                        }
+                        }
+                        }
+                        break;
+                    case "3+4+1":
+                        for (var i = 0; i < keywords3.length; i++) {
+                        for (var j = 0; j < keywords4.length; j++) {
+                        for (var k = 0; k < keywords1.length; k++) {
+                            combinedKeywords.push(keywords3[i] + keywords4[j] + keywords1[k]);
+                        }
+                        }
+                        }
+                        break;
+                    case "3+4+2":
+                        for (var i = 0; i < keywords3.length; i++) {
+                        for (var j = 0; j < keywords4.length; j++) {
+                        for (var k = 0; k < keywords2.length; k++) {
+                            combinedKeywords.push(keywords3[i] + keywords4[j] + keywords2[k]);
+                        }
+                        }
+                        }
+                        break;
+                    case "4+1+2":
+                        for (var i = 0; i < keywords4.length; i++) {
+                        for (var j = 0; j < keywords1.length; j++) {
+                        for (var k = 0; k < keywords2.length; k++) {
+                            combinedKeywords.push(keywords4[i] + keywords1[j] + keywords2[k]);
+                        }
+                        }
+                        }
+                        break;
+                    case "4+1+3":
+                        for (var i = 0; i < keywords4.length; i++) {
+                        for (var j = 0; j < keywords1.length; j++) {
+                        for (var k = 0; k < keywords3.length; k++) {
+                            combinedKeywords.push(keywords4[i] + keywords1[j] + keywords3[k]);
+                        }
+                        }
+                        }
+                        break;
+                    case "4+2+1":
+                        for (var i = 0; i < keywords4.length; i++) {
+                        for (var j = 0; j < keywords2.length; j++) {
+                        for (var k = 0; k < keywords1.length; k++) {
+                            combinedKeywords.push(keywords4[i] + keywords2[j] + keywords1[k]);
+                        }
+                        }
+                        }
+                        break;
+                    case "4+2+3":
+                        for (var i = 0; i < keywords4.length; i++) {
+                        for (var j = 0; j < keywords2.length; j++) {
+                        for (var k = 0; k < keywords3.length; k++) {
+                            combinedKeywords.push(keywords4[i] + keywords2[j] + keywords3[k]);
+                        }
+                        }
+                        }
+                        break;
+                    case "4+3+1":
+                        for (var i = 0; i < keywords4.length; i++) {
+                        for (var j = 0; j < keywords3.length; j++) {
+                        for (var k = 0; k < keywords1.length; k++) {
+                            combinedKeywords.push(keywords4[i] + keywords3[j] + keywords1[k]);
+                        }
+                        }
+                        }
+                        break;
+                    case "4+3+2":
+                        for (var i = 0; i < keywords4.length; i++) {
+                        for (var j = 0; j < keywords3.length; j++) {
+                        for (var k = 0; k < keywords2.length; k++) {
+                            combinedKeywords.push(keywords4[i] + keywords3[j] + keywords2[k]);
+                        }
+                        }
+                        }
+                        break;
+                    // 4개 짜리 조합들
+                    case "1+2+3+4":
+                        for (var i = 0; i < keywords1.length; i++) {
+                        for (var j = 0; j < keywords2.length; j++) {
+                        for (var k = 0; k < keywords3.length; k++) {
+                        for (var l = 0; k < keywords4.length; l++) {    
+                            combinedKeywords.push(keywords1[i] + keywords2[j] + keywords3[k] + keywords4[l]);
+                        }
+                        }
+                        }
+                        }
+                        break;
+                    case "1+2+4+3":
+                        for (var i = 0; i < keywords1.length; i++) {
+                        for (var j = 0; j < keywords2.length; j++) {
+                        for (var k = 0; k < keywords4.length; k++) {
+                        for (var l = 0; k < keywords3.length; l++) {    
+                            combinedKeywords.push(keywords1[i] + keywords2[j] + keywords4[k] + keywords3[l]);
+                        }
+                        }
+                        }
+                        }
+                        break;
+                    case "1+3+2+4":
+                        for (var i = 0; i < keywords1.length; i++) {
+                        for (var j = 0; j < keywords2.length; j++) {
+                        for (var k = 0; k < keywords2.length; k++) {
+                        for (var l = 0; k < keywords4.length; l++) {    
+                            combinedKeywords.push(keywords1[i] + keywords3[j] + keywords2[k] + keywords4[l]);
+                        }
+                        }
+                        }
+                        }
+                        break;
+                    case "1+3+4+2":
+                        for (var i = 0; i < keywords1.length; i++) {
+                        for (var j = 0; j < keywords3.length; j++) {
+                        for (var k = 0; k < keywords4.length; k++) {
+                        for (var l = 0; k < keywords2.length; l++) {    
+                            combinedKeywords.push(keywords1[i] + keywords3[j] + keywords4[k] + keywords2[l]);
+                        }
+                        }
+                        }
+                        }
+                        break;
+                    case "1+4+2+3":
+                        for (var i = 0; i < keywords1.length; i++) {
+                        for (var j = 0; j < keywords4.length; j++) {
+                        for (var k = 0; k < keywords2.length; k++) {
+                        for (var l = 0; k < keywords3.length; l++) {    
+                            combinedKeywords.push(keywords1[i] + keywords4[j] + keywords2[k] + keywords3[l]);
+                        }
+                        }
+                        }
+                        }
+                        break;
+                    case "1+4+3+2":
+                        for (var i = 0; i < keywords1.length; i++) {
+                        for (var j = 0; j < keywords4.length; j++) {
+                        for (var k = 0; k < keywords3.length; k++) {
+                        for (var l = 0; k < keywords2.length; l++) {    
+                            combinedKeywords.push(keywords1[i] + keywords4[j] + keywords3[k] + + keywords2[l]);
+                        }
+                        }
+                        }
+                        }
+                        break;
+                    case "2+1+3+4":
+                        for (var i = 0; i < keywords2.length; i++) {
+                        for (var j = 0; j < keywords1.length; j++) {
+                        for (var k = 0; k < keywords3.length; k++) {
+                        for (var l = 0; k < keywords4.length; l++) {    
+                            combinedKeywords.push(keywords2[i] + keywords1[j] + keywords3[k] + keywords4[l]);
+                        }
+                        }
+                        }
+                        }
+                        break;
+                    case "2+1+4+3":
+                        for (var i = 0; i < keywords2.length; i++) {
+                        for (var j = 0; j < keywords1.length; j++) {
+                        for (var k = 0; k < keywords4.length; k++) {
+                        for (var l = 0; k < keywords3.length; l++) {    
+                            combinedKeywords.push(keywords2[i] + keywords1[j] + keywords4[k] + keywords3[l]);
+                        }
+                        }
+                        }
+                        }
+                        break;
+                    case "2+3+1+4":
+                        for (var i = 0; i < keywords2.length; i++) {
+                        for (var j = 0; j < keywords3.length; j++) {
+                        for (var k = 0; k < keywords1.length; k++) {
+                        for (var l = 0; k < keywords4.length; l++) {    
+                            combinedKeywords.push(keywords2[i] + keywords3[j] + keywords1[k] + keywords4[l]);
+                        }
+                        }
+                        }
+                        }
+                        break;
+                    case "2+3+4+1":
+                        for (var i = 0; i < keywords2.length; i++) {
+                        for (var j = 0; j < keywords3.length; j++) {
+                        for (var k = 0; k < keywords4.length; k++) {
+                        for (var l = 0; k < keywords1.length; l++) {    
+                            combinedKeywords.push(keywords2[i] + keywords3[j] + keywords4[k] + keywords1[l]);
+                        }
+                        }
+                        }
+                        }
+                        break;
+                    case "2+4+1+3":
+                        for (var i = 0; i < keywords2.length; i++) {
+                        for (var j = 0; j < keywords4.length; j++) {
+                        for (var k = 0; k < keywords1.length; k++) {
+                        for (var l = 0; k < keywords3.length; l++) {    
+                            combinedKeywords.push(keywords2[i] + keywords4[j] + keywords1[k] + keywords3[l]);
+                        }
+                        }
+                        }
+                        }
+                        break;
+                    case "2+4+3+1":
+                        for (var i = 0; i < keywords2.length; i++) {
+                        for (var j = 0; j < keywords4.length; j++) {
+                        for (var k = 0; k < keywords3.length; k++) {
+                        for (var l = 0; k < keywords1.length; l++) {    
+                            combinedKeywords.push(keywords2[i] + keywords4[j] + keywords3[k] + keywords1[l]);
+                        }
+                        }
+                        }
+                        }
+                        break;
+                    case "3+1+2+4":
+                        for (var i = 0; i < keywords3.length; i++) {
+                        for (var j = 0; j < keywords1.length; j++) {
+                        for (var k = 0; k < keywords2.length; k++) {
+                        for (var l = 0; k < keywords4.length; l++) {    
+                            combinedKeywords.push(keywords3[i] + keywords1[j] + keywords2[k] + keywords4[l]);
+                        }
+                        }
+                        }
+                        }
+                        break;
+                    case "3+1+4+2":
+                        for (var i = 0; i < keywords3.length; i++) {
+                        for (var j = 0; j < keywords1.length; j++) {
+                        for (var k = 0; k < keywords4.length; k++) {
+                        for (var l = 0; k < keywords2.length; l++) {    
+                            combinedKeywords.push(keywords3[i] + keywords1[j] + keywords4[k] + keywords2[l]);
+                        }
+                        }
+                        }
+                        }
+                        break;
+                    case "3+2+1+4":
+                        for (var i = 0; i < keywords3.length; i++) {
+                        for (var j = 0; j < keywords2.length; j++) {
+                        for (var k = 0; k < keywords1.length; k++) {
+                        for (var l = 0; k < keywords4.length; l++) {    
+                            combinedKeywords.push(keywords3[i] + keywords2[j] + keywords1[k] + keywords4[l]);
+                        }
+                        }
+                        }
+                        }
+                        break;
+                    case "3+2+4+1":
+                        for (var i = 0; i < keywords3.length; i++) {
+                        for (var j = 0; j < keywords2.length; j++) {
+                        for (var k = 0; k < keywords4.length; k++) {
+                        for (var l = 0; k < keywords1.length; l++) {    
+                            combinedKeywords.push(keywords3[i] + keywords2[j] + keywords4[k] + keywords1[l]);
+                        }
+                        }
+                        }
+                        }
+                        break;
+                    case "3+4+1+2":
+                        for (var i = 0; i < keywords3.length; i++) {
+                        for (var j = 0; j < keywords4.length; j++) {
+                        for (var k = 0; k < keywords1.length; k++) {
+                        for (var l = 0; k < keywords2.length; l++) {    
+                            combinedKeywords.push(keywords3[i] + keywords4[j] + keywords1[k] + keywords2[l]);
+                        }
+                        }
+                        }
+                        }
+                        break;
+                    case "3+4+2+1":
+                        for (var i = 0; i < keywords3.length; i++) {
+                        for (var j = 0; j < keywords4.length; j++) {
+                        for (var k = 0; k < keywords2.length; k++) {
+                        for (var l = 0; k < keywords1.length; l++) {    
+                            combinedKeywords.push(keywords3[i] + keywords4[j] + keywords2[k] + keywords1[l]);
+                        }
+                        }
+                        }
+                        }
+                        break;
+                    case "4+1+2+3":
+                        for (var i = 0; i < keywords4.length; i++) {
+                        for (var j = 0; j < keywords1.length; j++) {
+                        for (var k = 0; k < keywords2.length; k++) {
+                        for (var l = 0; k < keywords3.length; l++) {    
+                            combinedKeywords.push(keywords4[i] + keywords1[j] + keywords2[k] + keywords3[l]);
+                        }
+                        }
+                        }
+                        }
+                        break;
+                    case "4+1+3+2":
+                        for (var i = 0; i < keywords4.length; i++) {
+                        for (var j = 0; j < keywords1.length; j++) {
+                        for (var k = 0; k < keywords3.length; k++) {
+                        for (var l = 0; k < keywords2.length; l++) {    
+                            combinedKeywords.push(keywords4[i] + keywords1[j] + keywords3[k] + keywords2[l]);
+                        }
+                        }
+                        }
+                        }
+                        break;
+                    case "4+2+1+3":
+                        for (var i = 0; i < keywords4.length; i++) {
+                        for (var j = 0; j < keywords2.length; j++) {
+                        for (var k = 0; k < keywords1.length; k++) {
+                        for (var l = 0; k < keywords3.length; l++) {    
+                            combinedKeywords.push(keywords4[i] + keywords2[j] + keywords1[k] + keywords3[l]);
+                        }
+                        }
+                        }
+                        }
+                        break;
+                    case "4+2+3+1":
+                        for (var i = 0; i < keywords4.length; i++) {
+                        for (var j = 0; j < keywords2.length; j++) {
+                        for (var k = 0; k < keywords3.length; k++) {
+                        for (var l = 0; k < keywords1.length; l++) {    
+                            combinedKeywords.push(keywords4[i] + keywords2[j] + keywords3[k] + keywords1[l]);
+                        }
+                        }
+                        }
+                        }
+                        break;
+                    case "4+3+1+2":
+                        for (var i = 0; i < keywords4.length; i++) {
+                        for (var j = 0; j < keywords3.length; j++) {
+                        for (var k = 0; k < keywords1.length; k++) {
+                        for (var l = 0; k < keywords2.length; l++) {    
+                            combinedKeywords.push(keywords4[i] + keywords3[j] + keywords1[k] + keywords2[l]);
+                        }
+                        }
+                        }
+                        }
+                        break;
+                    case "4+3+2+1":
+                        for (var i = 0; i < keywords4.length; i++) {
+                        for (var j = 0; j < keywords3.length; j++) {
+                        for (var k = 0; k < keywords2.length; k++) {
+                        for (var l = 0; k < keywords1.length; l++) {    
+                            combinedKeywords.push(keywords4[i] + keywords3[j] + keywords2[k] + keywords1[l]);
+                        }
+                        }
+                        }
+                        }
+                        break;
+                }
+            });
+
+            document.getElementById("result").innerHTML = combinedKeywords.join("\n");
+        }
+
+        function copyToClipboard() {
+            var result = document.getElementById("result");
+            result.select();
+            document.execCommand("copy");
+            alert("결과가 복사되었습니다.");
+        }
+    </script>
+</head>
+
+<style>
+    .block {
+            display: inline-block;
+            margin-right: 30px;
+        }
+</style>
+<body>
+    <h1>10초 만에 수만가지 조합의 수도 만들어 주는 키워드 조합기!</h1>
+    <p>아래 칸들에 키워드를 입력하세요. (최대 4칸 가능) <br> 각 키워드는 엔터로 구분합니다.</p>
+    <div>
+        <div class="block">
+            <h2>Keywords 1</h2>
+            <textarea id="keywords1" style="width: 150px; height: 350px;"></textarea>
+        </div>
+        <div class="block">
+            <h2>Keywords 2</h2>
+            <textarea id="keywords2" style="width: 150px; height: 350px;"></textarea>
+        </div>
+        <div class="block">
+            <h2>Keywords 3</h2>
+            <textarea id="keywords3" style="width: 150px; height: 350px;"></textarea>
+        </div>
+        <div class="block">
+            <h2>Keywords 4</h2>
+            <textarea id="keywords4" style="width: 150px; height: 350px;"></textarea>
+        </div>
+    </div>
+    <div>
+        <br>
+        <p> [조합할 옵션들을 선택 후, '조합하기' 버튼을 클릭하세요.]</p>
+        <div>
+            <!-- 1개 짜리 조합들 -->
+            <input type="checkbox" id="option1" name="option" value="1" checked>
+            <label for="option1">1</label>
+            <input type="checkbox" id="option2" name="option" value="2">
+            <label for="option2">2</label>
+            <input type="checkbox" id="option3" name="option" value="3">
+            <label for="option3">3</label>
+            <input type="checkbox" id="option4" name="option" value="4">
+            <label for="option4">4</label>
+            <br><br>
+            <!-- 2개 짜리 조합들 -->
+            <input type="checkbox" id="option5" name="option" value="1+2">
+            <label for="option5">1+2</label>
+            <input type="checkbox" id="option6" name="option" value="1+3">
+            <label for="option6">1+3</label>
+            <input type="checkbox" id="option7" name="option" value="1+4">
+            <label for="option7">1+4</label>
+            <input type="checkbox" id="option8" name="option" value="2+1">
+            <label for="option8">2+1</label>
+            <input type="checkbox" id="option9" name="option" value="2+3">
+            <label for="option9">2+3</label>
+            <input type="checkbox" id="option10" name="option" value="2+4">
+            <label for="option10">2+4</label>
+            <input type="checkbox" id="option11" name="option" value="3+1">
+            <label for="option11">3+1</label>
+            <input type="checkbox" id="option12" name="option" value="3+2">
+            <label for="option12">3+2</label>
+            <input type="checkbox" id="option13" name="option" value="3+4">
+            <label for="option13">3+4</label>
+            <input type="checkbox" id="option14" name="option" value="4+1">
+            <label for="option14">4+1</label>
+            <input type="checkbox" id="option15" name="option" value="4+2">
+            <label for="option15">4+2</label>
+            <input type="checkbox" id="option16" name="option" value="4+3">
+            <label for="option16">4+3</label>
+            <br><br>
+            <!-- 3개 짜리 조합들 -->
+            <input type="checkbox" id="option17" name="option" value="1+2+3">
+            <label for="option17">1+2+3</label>
+            <input type="checkbox" id="option18" name="option" value="1+2+4">
+            <label for="option18">1+2+4</label>
+            <input type="checkbox" id="option19" name="option" value="1+3+2">
+            <label for="option19">1+3+2</label>
+            <input type="checkbox" id="option20" name="option" value="1+3+4">
+            <label for="option20">1+3+4</label>
+            <input type="checkbox" id="option21" name="option" value="1+4+2">
+            <label for="option21">1+4+2</label>
+            <input type="checkbox" id="option22" name="option" value="1+4+3">
+            <label for="option22">1+4+3</label>
+            <input type="checkbox" id="option23" name="option" value="2+1+3">
+            <label for="option23">2+1+3</label>
+            <input type="checkbox" id="option24" name="option" value="2+1+4">
+            <label for="option24">2+1+4</label>
+            <br>
+            <input type="checkbox" id="option25" name="option" value="2+3+1">
+            <label for="option25">2+3+1</label>
+            <input type="checkbox" id="option26" name="option" value="2+3+4">
+            <label for="option26">2+3+4</label>
+            <input type="checkbox" id="option27" name="option" value="2+4+1">
+            <label for="option27">2+4+1</label>
+            <input type="checkbox" id="option28" name="option" value="2+4+3">
+            <label for="option28">2+4+3</label>
+            <input type="checkbox" id="option29" name="option" value="3+1+2">
+            <label for="option29">3+1+2</label>
+            <input type="checkbox" id="option30" name="option" value="3+1+4">
+            <label for="option30">3+1+4</label>
+            <input type="checkbox" id="option31" name="option" value="3+2+1">
+            <label for="option31">3+2+1</label>
+            <input type="checkbox" id="option32" name="option" value="3+2+4">
+            <label for="option32">3+2+4</label>
+            <br>
+            <input type="checkbox" id="option33" name="option" value="3+4+1">
+            <label for="option33">3+4+1</label>
+            <input type="checkbox" id="option34" name="option" value="3+4+2">
+            <label for="option33">3+4+2</label>
+            <input type="checkbox" id="option35" name="option" value="4+1+2">
+            <label for="option35">4+1+2</label>
+            <input type="checkbox" id="option36" name="option" value="4+1+3">
+            <label for="option36">4+1+3</label>
+            <input type="checkbox" id="option37" name="option" value="4+2+1">
+            <label for="option37">4+2+1</label>
+            <input type="checkbox" id="option38" name="option" value="4+2+3">
+            <label for="option38">4+2+3</label>
+            <input type="checkbox" id="option39" name="option" value="4+3+1">
+            <label for="option39">4+3+1</label>
+            <input type="checkbox" id="option40" name="option" value="4+3+2">
+            <label for="option40">4+3+2</label>
+            <br><br>
+            <!-- 4개 짜리 조합들 -->
+            <input type="checkbox" id="option41" name="option" value="1+2+3+4">
+            <label for="option41">1+2+3+4</label>
+            <input type="checkbox" id="option42" name="option" value="1+2+4+3">
+            <label for="option42">1+2+4+3</label>
+            <input type="checkbox" id="option43" name="option" value="1+3+2+4">
+            <label for="option43">1+3+2+4</label>
+            <input type="checkbox" id="option44" name="option" value="1+3+4+2">
+            <label for="option44">1+3+4+2</label>
+            <input type="checkbox" id="option45" name="option" value="1+4+2+3">
+            <label for="option45">1+4+2+3</label>
+            <input type="checkbox" id="option46" name="option" value="1+4+3+2">
+            <label for="option46">1+4+3+2</label>
+            <input type="checkbox" id="option47" name="option" value="2+1+3+4">
+            <label for="option47">2+1+3+4</label>
+            <input type="checkbox" id="option48" name="option" value="2+1+4+3">
+            <label for="option48">2+1+4+3</label>
+            <br>
+            <input type="checkbox" id="option49" name="option" value="2+3+1+4">
+            <label for="option49">2+3+1+4</label>
+            <input type="checkbox" id="option50" name="option" value="2+3+4+1">
+            <label for="option50">2+3+4+1</label>
+            <input type="checkbox" id="option51" name="option" value="2+4+1+3">
+            <label for="option51">2+4+1+3</label>
+            <input type="checkbox" id="option52" name="option" value="2+4+3+1">
+            <label for="option52">2+4+3+1</label>
+            <input type="checkbox" id="option53" name="option" value="3+1+2+4">
+            <label for="option53">3+1+2+4</label>
+            <input type="checkbox" id="option54" name="option" value="3+1+4+2">
+            <label for="option54">3+1+4+2</label>
+            <input type="checkbox" id="option55" name="option" value="3+2+1+4">
+            <label for="option55">3+2+1+4</label>
+            <input type="checkbox" id="option56" name="option" value="3+2+4+1">
+            <label for="option56">3+2+4+1</label>
+            <br>
+            <input type="checkbox" id="option57" name="option" value="3+4+1+2">
+            <label for="option57">3+4+1+2</label>
+            <input type="checkbox" id="option58" name="option" value="3+4+2+1">
+            <label for="option58">3+4+2+1</label>
+            <input type="checkbox" id="option59" name="option" value="4+1+2+3">
+            <label for="option59">4+1+2+3</label>
+            <input type="checkbox" id="option60" name="option" value="4+1+3+2">
+            <label for="option60">4+1+3+2</label>
+            <input type="checkbox" id="option61" name="option" value="4+2+1+3">
+            <label for="option61">4+2+1+3</label>
+            <input type="checkbox" id="option62" name="option" value="4+2+3+1">
+            <label for="option62">4+2+3+1</label>
+            <input type="checkbox" id="option63" name="option" value="4+3+1+2">
+            <label for="option63">4+3+1+2</label>
+            <input type="checkbox" id="option64" name="option" value="4+3+2+1">
+            <label for="option64">4+3+2+1</label>
+            <br><br>
+        </div>
+        <button onclick="combineKeywords()">조합하기</button>
+    </div>
+    <div>
+        <br>
+        <p>결과:</p>
+        <textarea id="result" style="width: 150px; height: 200px;"></textarea>
+        <button onclick="copyToClipboard()">복사하기</button>
+    </div>
+</body>
+
+</html>
